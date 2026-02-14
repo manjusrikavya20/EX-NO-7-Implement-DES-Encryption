@@ -52,12 +52,11 @@ int main()
 
     return 0;
 }
-
 ```
 
 ## Output:
 
-<img width="483" height="219" alt="image" src="https://github.com/user-attachments/assets/5da2c3c1-1915-4be4-9f1f-dc1ea3f2cf39" />
+<img width="486" height="220" alt="image" src="https://github.com/user-attachments/assets/b251875c-23a3-46a9-b1d9-55b1d0a938e9" />
 
 ## Result:
   The program is executed successfully
