@@ -19,34 +19,45 @@ REGISTER NUMBER: 212224040186
 ```
 #include <stdio.h>
 #include <string.h>
-void xorCrypt(char *in, char *key, char *out, int len)
-{
-  for (int i = 0; i < len; i++) out[i] = in[i] ^ key[i % strlen(key)];
-  out[len] = 0;
-}
-int main() 
-{
-  char msg[100], key[100], enc[100], dec[100];
-  printf("Enter message: "); fgets(msg, 100, stdin);
-  msg[strcspn(msg, "\n")] = 0;
-  printf("Enter key: "); fgets(key, 100, stdin);
-  key[strcspn(key, "\n")] = 0;
 
-  int len = strlen(msg);
-  xorCrypt(msg, key, enc, len);
-  printf("Encrypted: ");
-  for (int i = 0; i < len; i++) printf("%02X ", (unsigned char)enc[i]);
-  printf("\n");
+int main()
+{
+    char msg[100], key[100];
+    int i;
 
-  xorCrypt(enc, key, dec, len);
-  printf("Decrypted: %s\n", dec);
-  return 0;
+    printf("Enter message: ");
+    scanf("%s", msg);
+
+    printf("Enter key: ");
+    scanf("%s", key);
+
+    int msgLen = strlen(msg);
+    int keyLen = strlen(key);
+
+    // Encryption
+    printf("Encrypted (Hex): ");
+    for(i = 0; i < msgLen; i++)
+    {
+        msg[i] = msg[i] ^ key[i % keyLen];
+        printf("%02X ", (unsigned char)msg[i]);
+    }
+
+    // Decryption
+    for(i = 0; i < msgLen; i++)
+    {
+        msg[i] = msg[i] ^ key[i % keyLen];
+    }
+
+    printf("\nDecrypted: %s\n", msg);
+
+    return 0;
 }
+
 ```
 
 ## Output:
 
-<img width="438" height="220" alt="image" src="https://github.com/user-attachments/assets/ca522687-d643-49ea-82c1-c8a1ee9c8014" />
+<img width="483" height="219" alt="image" src="https://github.com/user-attachments/assets/5da2c3c1-1915-4be4-9f1f-dc1ea3f2cf39" />
 
 ## Result:
   The program is executed successfully
